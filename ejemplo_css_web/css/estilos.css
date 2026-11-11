@@ -1,0 +1,114 @@
+/*Variables CSS */
+:root {
+  --principal: #183153;
+  --acento: #0d9488;
+  --texto: #b72991;
+  --suave: #64748b;
+  --fondo: #f7f9fc;
+  --blanco: #ffffff;
+  --borde: #e2e8f0;
+  --radio: 14px;
+}
+
+/* Modelo de caja y estilos generales */
+*,
+*::before,
+*::after { 
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  /*color:#253247;*/
+  background: var(--blanco);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--acento); outline-offset: 4px; }
+.contenedor { width: min(90%, 1120px); margin-inline: auto; }
+
+/* 3. Encabezado y navegación compartidos */
+.encabezado { background: var(--blanco); border-bottom: 1px solid var(--borde); }
+.barra-navegacion { display: flex; justify-content: space-between; align-items: center; min-height: 78px; gap: 20px; }
+.marca { color: var(--principal); font-size: 1.35rem; font-weight: 800; letter-spacing: -.5px; }
+.marca span { color: var(--acento); }
+nav { display: flex; gap: 26px; }
+nav a { font-size: .95rem; font-weight: 600; color: var(--suave); padding: 8px 0; }
+nav a:hover, nav a.enlace-activo { color: var(--acento); }
+
+/* 4. Títulos, colores y espaciados */
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.2; color: var(--principal); }
+h1 { font-size: clamp(2.2rem, 5vw, 4.1rem); letter-spacing: -1.5px; margin-bottom: 22px; }
+h1 span { color: var(--acento); }
+h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: 12px; }
+h3 { font-size: 1.2rem; margin-bottom: 12px; }
+.etiqueta { color: var(--acento); font-size: .77rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; }
+.introduccion { max-width: 660px; color: var(--suave); font-size: 1.08rem; margin-bottom: 30px; }
+.hero { background: linear-gradient(120deg, #f3f8fc 0%, #eef8f6 100%); padding: 105px 0 110px; }
+.hero-contenido { max-width: 1120px; }
+.pagina-cabecera { background: var(--fondo); padding: 78px 0; }
+.seccion { padding-block: 78px 90px; }
+.seccion-encabezado { max-width: 660px; margin-bottom: 35px; }
+.seccion-encabezado > p:last-child { color: var(--suave); }
+
+/* 5. Botones: padding, borde, radio y efecto hover */
+.boton {
+  display: inline-block;
+  background: var(--principal);
+  color: var(--blanco);
+  font-weight: 700;
+  padding: 14px 23px;
+  border: 2px solid var(--principal);
+  border-radius: 9px;
+  transition: background .2s ease, transform .2s ease;
+}
+.boton:hover { background: #294b77; transform: translateY(-2px); }
+.boton span { margin-left: 8px; }
+
+/* 6. Tarjetas reutilizables */
+.cuadricula-tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 29px;
+  box-shadow: 0 10px 28px rgba(24, 49, 83, .05);
+}
+.tarjeta p { color: var(--suave); margin-bottom: 0; }
+.icono {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  border-radius: 11px;
+  background: #e6f5f2;
+  color: var(--acento);
+  font-weight: 800;
+}
+
+/* 7. Bloque final y pie de página */
+.llamada { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 34px 40px; margin-bottom: 85px; background: var(--principal); border-radius: var(--radio); }
+.llamada h2, .llamada p:not(.etiqueta) { color: var(--blanco); }
+.llamada p:last-child { margin-bottom: 0; opacity: .85; }
+.boton-claro { background: var(--blanco); color: var(--principal); border-color: var(--blanco); white-space: nowrap; }
+.boton-claro:hover { background: #e9f2f7; }
+.pie { background: var(--fondo); border-top: 1px solid var(--borde); }
+.pie-contenido { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-block: 28px; }
+.pie p { margin: 0; color: var(--suave); font-size: .85rem; }
+.pie a { color: var(--acento); font-weight: 600; font-size: .85rem; }
+
+/* 8. Adaptación básica a pantallas pequeñas */
+@media (max-width: 700px) {
+  .barra-navegacion { min-height: 70px; }
+  nav { gap: 14px; }
+  .hero { padding: 70px 0 75px; }
+  .pagina-cabecera { padding: 60px 0; }
+  .seccion { padding-block: 60px; }
+  .cuadricula-tarjetas { grid-template-columns: 1fr; }
+  .llamada { flex-direction: column; align-items: flex-start; padding: 28px; margin-bottom: 60px; }
+  .pie-contenido { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,55 @@
+/* CSS compartido. Repasa variables, unidades, modelo de caja y estilos base. */
+:root { --principal:#132745; --acento:#0f766e; --fondo:#f5f8fc; --texto:#253247; --borde:#dbe4ef; --radio:14px; }
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif; background:var(--fondo); color:var(--texto); line-height:1.6; }
+a { color:var(--acento); }
+.sitio-cabecera { background:var(--principal); color:#fff; }
+.sitio-cabecera .barra { width:min(92%,1100px); margin:auto; padding:1rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.marca { font-size:1.15rem; font-weight:800; color:#fff; text-decoration:none; }
+.navegacion { display:flex; flex-wrap:wrap; gap:.35rem; }
+.navegacion a { color:#dfeaf5; text-decoration:none; padding:.4rem .65rem; border-radius:8px; font-size:.92rem; }
+.navegacion a:hover,.navegacion a[aria-current="page"] { background:#274565; color:#fff; }
+.contenedor { width:min(92%,1100px); margin-inline:auto; }
+main { padding:2.4rem 0 4rem; }
+h1,h2,h3 { color:var(--principal); line-height:1.2; }
+h1 { font-size:clamp(1.85rem,4vw,2.8rem); margin:.35rem 0 1rem; }
+h2 { margin:2.1rem 0 .7rem; }
+.intro { max-width:75ch; color:#465973; }
+.etiqueta { text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; font-weight:800; color:var(--acento); }
+.panel { background:white; border:1px solid var(--borde); border-radius:var(--radio); padding:1.4rem; box-shadow:0 8px 24px rgb(19 39 69 / 5%); }
+.panel h3 { margin-top:0; }
+.grid-indice { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:1rem; margin-top:1.6rem; }
+.boton { display:inline-block; background:var(--principal); color:white; padding:.65rem 1rem; border:0; text-decoration:none; border-radius:9px; font:inherit; cursor:pointer; }
+.boton:hover { background:#25466e; }
+.boton.secundario { background:#e1f3f0; color:#095b55; }
+.boton.secundario:hover { background:#c7e7e1; }
+pre { margin:1rem 0; background:#0e2038; color:#e7eff8; padding:1.2rem; border-radius:12px; overflow-x:auto; font: .88rem/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; }
+code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+p code,li code { background:#e9eef5; padding:.1rem .28rem; border-radius:4px; }
+.nota { border-left:4px solid var(--acento); padding:.75rem 1rem; background:#e7f5f2; border-radius:0 8px 8px 0; }
+.demo { margin-top:1rem; padding:1rem; background:#eaf0f7; border:1px dashed #a7bdd4; border-radius:12px; }
+.caja { background:white; border:1px solid #c9d7e6; padding:1rem; border-radius:10px; text-align:center; font-weight:650; }
+.sitio-pie { background:#e8eef6; padding:1.4rem 0; font-size:.9rem; color:#41536a; }
+/* DIAPOSITIVA 5: Flexbox, menu con espacio entre grupos */
+.menu { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+/* DIAPOSITIVA 7: grupo de acciones centrado */
+.acciones { display:flex; justify-content:center; align-items:center; gap:12px; flex-wrap:wrap; }
+/* DIAPOSITIVA 8: Grid con tres columnas */
+.galeria { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+/* DIAPOSITIVA 9: Grid auto-fit; min evita desbordamiento en pantallas muy estrechas */
+.tarjetas-auto { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:1.25rem; }
+/* DIAPOSITIVA 13: base movil y media query de 768px */
+.tarjetas-media { display:grid; grid-template-columns:1fr; gap:1rem; }
+@media (min-width:768px) { .tarjetas-media { grid-template-columns:repeat(2,1fr); } }
+/* DIAPOSITIVA 15: mobile-first de 1, luego 2 y luego 3 columnas */
+.tarjetas-mobile-first { display:grid; grid-template-columns:1fr; gap:1rem; }
+@media (min-width:700px) { .tarjetas-mobile-first { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1050px) { .tarjetas-mobile-first { grid-template-columns:repeat(3,1fr); } }
+/* DIAPOSITIVA 12: imagen fluida */
+.imagen-responsive { max-width:100%; height:auto; display:block; border-radius:12px; }
+/* Combinacion Grid exterior + Flexbox interior (diapositiva 10) */
+.tarjeta-producto { display:flex; flex-direction:column; align-items:flex-start; gap:.65rem; }
+.tarjeta-producto p { margin:0; flex:1; }
+.leyenda { font-size:.87rem; color:#52627b; }
+@media (max-width:520px) { .panel { padding:1rem; } .galeria { grid-template-columns:1fr; } }

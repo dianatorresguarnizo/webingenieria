@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Grid: filas y columnas | Laboratorio de maquetación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  
+</head>
+<body>
+  <header class="sitio-cabecera"><div class="barra"><a class="marca" href="index.html">LAB · Ingeniería Web</a><nav class="navegacion" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="flexbox.html">Flexbox</a><a href="grid.html" aria-current="page">CSS Grid</a><a href="responsive.html">Responsive</a><a href="bootstrap.html">Bootstrap</a><a href="tailwind.html">Tailwind</a></nav></div></header>
+  <main class="contenedor"><p class="etiqueta">03 · CSS Grid</p><h1>CSS Grid: filas y columnas</h1><p class="intro">Compara una cuadrícula con columnas definidas y otra que se adapta automáticamente al espacio disponible.</p>
+<h2>1. Galería fija en 3 columnas (diapositiva 8)</h2>
+<div class="demo"><div class="galeria"><div class="caja">Tarjeta 1</div><div class="caja">Tarjeta 2</div><div class="caja">Tarjeta 3</div><div class="caja">Tarjeta 4</div><div class="caja">Tarjeta 5</div><div class="caja">Tarjeta 6</div></div></div>
+<pre>.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}</pre>
+<p class="leyenda">En este laboratorio se incorpora además una media query para mostrar 1 columna cuando el espacio es muy estrecho.</p>
+<h2>2. Columnas automáticas con auto-fit (diapositiva 9)</h2>
+<div class="demo"><div class="tarjetas-auto"><div class="caja">Proyecto A</div><div class="caja">Proyecto B</div><div class="caja">Proyecto C</div><div class="caja">Proyecto D</div></div></div>
+<pre>.tarjetas-auto {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1.25rem;
+}</pre>
+<p class="nota"><strong>Prueba:</strong> compara el comportamiento de las dos galerías al estrechar la ventana. <code>auto-fit</code> crea el número de columnas que cabe, sin un breakpoint específico.</p>
+<h2>3. Grid exterior y Flexbox interior (diapositiva 10)</h2>
+<div class="tarjetas-auto"><article class="panel tarjeta-producto"><h3>Plan Básico</h3><p>Una tarjeta dentro de una cuadrícula puede organizar su propio contenido con Flexbox.</p><a class="boton" href="#">Ver plan</a></article><article class="panel tarjeta-producto"><h3>Plan Plus</h3><p>La segunda tarjeta tiene más texto para observar la alineación del botón y los espacios.</p><a class="boton" href="#">Ver plan</a></article></div>
+  </main>
+  <footer class="sitio-pie"><div class="contenedor">Ejemplos didácticos · Ingeniería Web · HTML + CSS · Modifica el código desde VS Code</div></footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailwind CSS: utilidades | Laboratorio de maquetación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <header class="sitio-cabecera"><div class="barra"><a class="marca" href="index.html">LAB · Ingeniería Web</a><nav class="navegacion" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="flexbox.html">Flexbox</a><a href="grid.html">CSS Grid</a><a href="responsive.html">Responsive</a><a href="bootstrap.html">Bootstrap</a><a href="tailwind.html" aria-current="page">Tailwind</a></nav></div></header>
+  <main class="contenedor"><p class="etiqueta">07 · Frameworks CSS</p><h1>Tailwind CSS: utilidades</h1><p class="intro">Ejemplo introductorio del patrón grid-cols-1, md:grid-cols-2 y lg:grid-cols-3 mostrado en la diapositiva 18.</p>
+<p class="nota"><strong>Requiere Internet:</strong> se utiliza el paquete de navegador de Tailwind CSS 4 únicamente para demostración. En proyectos de producción se recomienda un proceso de compilación.</p>
+<h2>Ejemplo de la diapositiva 18</h2>
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3" style="margin-top:1.5rem">
+ <article class="rounded-lg p-4 shadow bg-white"><h3>Proyecto A</h3><p>Una columna en móvil.</p></article>
+ <article class="rounded-lg p-4 shadow bg-white"><h3>Proyecto B</h3><p>Dos columnas desde md.</p></article>
+ <article class="rounded-lg p-4 shadow bg-white"><h3>Proyecto C</h3><p>Tres columnas desde lg.</p></article>
+</div>
+<pre>&lt;div class="grid grid-cols-1 gap-4
+            md:grid-cols-2 lg:grid-cols-3"&gt;
+  &lt;article class="rounded-lg p-4 shadow"&gt;
+    Proyecto A
+  &lt;/article&gt;
+&lt;/div&gt;</pre>
+<p>Con Tailwind, las clases utilitarias aplican estilos directamente desde el HTML. <code>md:</code> y <code>lg:</code> son variantes responsive.</p>
+<p class="nota"><strong>Prueba:</strong> inspecciona el HTML, cambia <code>gap-4</code> por <code>gap-8</code> o <code>rounded-lg</code> por <code>rounded-none</code>.</p>
+  </main>
+  <footer class="sitio-pie"><div class="contenedor">Ejemplos didácticos · Ingeniería Web · HTML + CSS · Modifica el código desde VS Code</div></footer>
+</body>
+</html>

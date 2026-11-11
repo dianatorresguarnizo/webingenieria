@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diseño responsive y mobile-first | Laboratorio de maquetación</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  
+</head>
+<body>
+  <header class="sitio-cabecera"><div class="barra"><a class="marca" href="index.html">LAB · Ingeniería Web</a><nav class="navegacion" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="flexbox.html">Flexbox</a><a href="grid.html">CSS Grid</a><a href="responsive.html" aria-current="page">Responsive</a><a href="bootstrap.html">Bootstrap</a><a href="tailwind.html">Tailwind</a></nav></div></header>
+  <main class="contenedor"><p class="etiqueta">04–06 · Responsive</p><h1>Diseño responsive y mobile-first</h1><p class="intro">Una misma interfaz debe reorganizarse con el espacio disponible: viewport, imágenes flexibles, media queries y estilos base para móviles.</p>
+<h2>1. Viewport e imagen adaptable (diapositva 12)</h2>
+<div class="panel"><img class="imagen-responsive" src="img/ilustracion.svg" width="1000" height="340" alt="Diagrama de tres dispositivos: móvil, tableta y escritorio"><p class="leyenda">La imagen utiliza <code>max-width: 100%</code> y <code>height: auto</code>; observa el comportamiento al reducir la ventana.</p></div>
+<pre>&lt;meta name="viewport"
+  content="width=device-width, initial-scale=1"&gt;
+
+img {
+  max-width: 100%;
+  height: auto;
+}</pre>
+<h2>2. Media query: una o dos columnas (diapositiva 13)</h2>
+<div class="tarjetas-media"><div class="panel">Tarjeta 1</div><div class="panel">Tarjeta 2</div><div class="panel">Tarjeta 3</div><div class="panel">Tarjeta 4</div></div>
+<pre>.tarjetas-media {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .tarjetas-media {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}</pre>
+<h2>3. Mobile-first: 1 → 2 → 3 columnas (diapositiva 15)</h2>
+<div class="tarjetas-mobile-first"><div class="panel">Servicio 1</div><div class="panel">Servicio 2</div><div class="panel">Servicio 3</div><div class="panel">Servicio 4</div><div class="panel">Servicio 5</div><div class="panel">Servicio 6</div></div>
+<pre>.tarjetas-mobile-first {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 700px) {
+  .tarjetas-mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1050px) {
+  .tarjetas-mobile-first {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</pre>
+<p class="nota"><strong>Prueba en DevTools:</strong> observa el punto en que aparecen 2 y 3 columnas. Discute por qué los breakpoints deben responder al contenido, no a modelos de teléfono específicos.</p>
+  </main>
+  <footer class="sitio-pie"><div class="contenedor">Ejemplos didácticos · Ingeniería Web · HTML + CSS · Modifica el código desde VS Code</div></footer>
+</body>
+</html>
